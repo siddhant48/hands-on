@@ -1,14 +1,26 @@
 import Vue from 'vue';
 import VueRouter, { RouteConfig } from 'vue-router';
-import Home from '../views/Home.vue';
+// import InviteMembers from '@/components/InviteMembers.vue';
+// import App from '@/App.vue';
+// import Home from '@/views/Home.vue';
 
 Vue.use(VueRouter);
 
 const routes: Array<RouteConfig> = [
   {
+    path: '/invite',
+    name: 'InviteMembers',
+    component: () => import(/* webpackChunkName: "about" */ '@/components/InviteMembers.vue'),
+  },
+  {
+    path: '/update',
+    name: 'UpdateMembers',
+    component: () => import(/* webpackChunkName: "about" */ '@/components/Edit.vue'),
+  },
+  {
     path: '/',
     name: 'Home',
-    component: Home,
+    component: () => import(/* webpackChunkName: "about" */ '../views/Home.vue'),
   },
   {
     path: '/about',
